@@ -1,0 +1,510 @@
+/* General Styling */
+#home {
+    height: 100vh; /* Make the section take the full screen height */
+    display: flex;
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    text-align: center; /* Center text alignment */
+} 
+
+/* Adjust heading and text styles */
+#home h1 {
+    font-size: 3rem; /* Increase size for emphasis */
+    margin: 10px 0;
+}
+
+#home p {
+    font-size: 1.5rem; /* Increase paragraph size */
+}
+
+#home .btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+#home .btn:hover {
+    background-color: #0056b3;
+}
+
+/* Ensure smooth scrolling alignment */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Fix navigation highlight issue */
+section {
+    padding: 50px 0; /* Ensure enough spacing for smooth scrolling */
+}
+
+
+#about {
+    min-height: 50vh; /* Makes the section at least the full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers content horizontally */
+    text-align: center; /* Centers text */
+    padding: 50px; /* Adds spacing */
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgb(41, 133, 175);
+    color: white;
+    overflow-x: hidden;
+    display: flex;
+}
+
+/* Sidebar Navigation */
+.sidebar {
+    background: rgb(44, 67, 112);
+    width: 200px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 70px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+
+/* Profile Picture */
+.profile-pic {
+    width: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+    display: block;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1);
+}
+
+/* Profile Picture Inside Sidebar */
+#sidebar-profile {
+    display: block;
+}
+
+/* Profile Picture Inside Main Content */
+#content-profile {
+    display: none;
+}
+
+/* Navbar Links */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.sidebar ul li {
+    width: 100%;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background 0.3s;
+}
+
+
+
+.sidebar ul li a:hover {
+    background: #a18206;
+    color: #fff;
+}
+
+nav ul li a.active {
+    color:white ; /* Highlight text color */
+    font-weight: bold;
+    border-bottom: 2px solid #ffcc00; /* Underline effect */
+    background-color: rgba(255, 204, 0, 0.2); /* Light highlight */
+    border-radius: 5px;
+}
+
+/* Main Content */
+.content {
+    margin-left: 220px;
+    width: calc(100% - 220px);
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out;
+}
+
+.skill {
+    position: relative;
+    display: inline-flex; /* Use flex to align icon and text */
+    align-items: center;
+    gap: 10px; /* Adds space between icon and text */
+    padding: 10px;
+    cursor: pointer;
+}
+
+.skill i {
+    font-size: 20px; 
+    color: #f4c542; /* Adjust icon color */
+}
+
+
+/* Hidden Class */
+.hidden {
+    display: none, !important;
+}
+
+/* Toggle Button */
+.toggle-btn {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.toggle-btn:hover {
+    background: #0056b3;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .sidebar {
+        transform: translateX(-100%); /* Fully hide the sidebar */
+        transition: transform 0.3s ease-in-out;
+    }
+
+    /* When sidebar is active */
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .content {
+        margin-left: 0;
+        width: 90%; /* Adjust width to be responsive */
+        max-width: 600px; /* Set a max width for better readability */
+        margin: 0 auto; /* Centers the content */
+        padding: 20px;
+        transition: margin-left 0.3s ease-in-out;
+        text-align: center; /* Ensures text/content aligns to center */
+    }
+
+    .toggle-btn {
+        display: block;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 1000;
+    }
+
+    /* Profile picture handling */
+    #content-profile {
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+    }
+
+    #sidebar-profile {
+        display: none;
+    }
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out, background 0.3s;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    background: #0056b3;
+}
+
+/* scrolling text */
+#changing-text {
+    font-weight: bold;
+    color: #007BFF; /* Change color if needed */
+    transition: opacity 0.5s ease-in-out;
+}
+
+#cursor {
+    font-weight: bold;
+    color: #799abd;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+#contact {
+    background: #111;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    margin-top: 20px;
+    animation: fadeInUp 1s ease-in-out;
+}
+
+.contact-links {
+    margin-top: 20px;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 10px;
+    background: #007BFF;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out, background 0.3s;
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+}
+
+.contact-btn:hover {
+    transform: scale(1.1);
+    background: #0056b3;
+}
+
+.contact-btn i {
+    margin-right: 8px;
+}
+
+/* CSS for Project section */
+/* Grid layout for projects */
+#github-projects {
+    min-height: 50vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.project-card {
+    width: 300px;
+    padding: 15px;
+    background: black;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+    cursor: pointer;
+    text-align: center;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Popup styling */
+/* Popup Overlay (Dimmed Background) */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark overlay */
+    backdrop-filter: blur(5px); /* Blur effect for better focus */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+
+/* Active State for Popup */
+.popup.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Popup Content Box */
+.popup-content {
+    position: relative;
+    width: 90%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.15); /* Glassmorphism effect */
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: white;
+    animation: fadeInUp 0.4s ease-in-out;
+    max-height: 80vh;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+/* Popup Heading */
+.popup-content h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* README Content */
+.popup-content pre {
+    white-space: pre-wrap;
+    text-align: left;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    max-height: 50vh;
+    overflow-y: auto;
+}
+
+/* View on GitHub Button */
+.popup-content .btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 15px;
+    background: linear-gradient(45deg, #007bff, #00d4ff);
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s ease-in-out, transform 0.2s ease;
+}
+
+.popup-content .btn:hover {
+    background: linear-gradient(45deg, #00d4ff, #007bff);
+    transform: scale(1.05);
+}
+
+/* Smooth Fade-In Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* project section readme button css */
+.readme-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: #1f5892; /* GitHub button color */
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+/* Improve Scrollbar */
+/* Remove bullet points from lists */
+.readme-content ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* If you want a cleaner look with indentation */
+.readme-content ul li {
+    margin-left: 10px;
+}
+
+/* Optional: Style links inside the README */
+.readme-content a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Hover effect */
+.readme-btn:hover {
+    background: #1767c9; /* Darker GitHub button hover */
+    border-color: white;
+    transform: scale(1.05);
+}
+
+/* Active (click) effect */
+.readme-btn:active {
+    background: #1b1f23;
+    transform: scale(0.98);
+}
+
+
+/* Ensuring consistency with GitHub buttons */
+.readme-btn svg {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    fill: white;
+}
+

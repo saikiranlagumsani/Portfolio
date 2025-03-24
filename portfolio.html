@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saikiran Lagumsani - Portfolio</title>
+    <link rel="stylesheet" href="styling.css">  
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav id="sidebar" class="sidebar">  
+        <img src="WhatsApp Image 2025-03-20 at 03.27.51.jpeg" alt="Profile Picture" class="profile-pic" id="sidebar-profile">
+        <ul>
+            <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="#skills"><i class="fas fa-code"></i> Skills</a></li>
+            <li><a href="#github-projects"><i class="fas fa-project-diagram"></i> Projects</a></li>
+            <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="content" id="main-content">
+        <button class="toggle-btn" id="toggle-btn"><i class="fas fa-bars"></i></button>
+                
+        <header id="home">
+            <section>
+                <img src="WhatsApp Image 2025-03-20 at 03.27.51.jpeg" alt="Profile Picture" class="profile-pic hidden" id="content-profile">
+        
+                <p>Hey! Welcome to my Portfolio:)</p>
+                <h1>I'm <a style="background-color:aliceblue ; color: black;">Saikiran Lagumsani</a></h1>
+                <p>A <span id="changing-text"></span></p>
+                <a aria-label="Open Sai Kiran Resume in a new tab" href="https://drive.google.com/file/d/16QG1FJY9ltqp1Y8DP0TcfRsUSVF10s3w/view?usp=drive_link" target="_blank" class="btn">View My Resume</a>
+            </section>  
+        </header>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am a passionate Data Science enthusiast with a strong foundation in Python full-stack development. Currently working as a Credentialing Specialist at Harphil Solutions, I enjoy solving complex problems with data-driven insights.  
+                
+              As a fast learner, I thrive in dynamic environments where I can continuously explore new technologies. My curiosity has led me to develop expertise in Python, HTML, CSS, JavaScript, and various data science libraries such as Scikit-learn, Matplotlib, Seaborn, Pandas, and NumPy. I also have experience working with APIs, SQL, and Excel for data manipulation and analysis.  
+              
+              I believe in lifelong learning and enjoy tackling challenges that push me to expand my knowledge. Whether it’s building machine learning models, developing full-stack applications, or automating tasks, I am always eager to experiment and innovate.  
+              
+              Let’s connect and explore how we can build impactful solutions together! 🚀</p>
+        </section>
+
+        <section id="skills">
+          <div class="container">
+              <h2>Skills & Technologies</h2>
+              <div class="skill-container">
+                  <h5>Full-Stack Development</h5>
+                  <div class="skills-list">
+                      <div class="skill"><i class="fab fa-python"></i>Python</div>
+                      <div class="skill"><i class="fab fa-html5"></i>HTML</div>
+                      <div class="skill"><i class="fab fa-css3-alt"></i>CSS</div>
+                      <div class="skill"><i class="fab fa-js-square"></i>JavaScript</div>
+                  </div>
+
+              </div>
+              <div class="skills-category">
+                <h5>Data Science & Machine Learning</h5>
+                <div class="skills-list">
+                    <div class="skill"><i class="fas fa-database"></i> Pandas</div>
+                    <div class="skill"><i class="fas fa-calculator"></i> NumPy</div>
+                    <div class="skill"><i class="fas fa-chart-line"></i> Matplotlib</div>
+                    <div class="skill"><i class="fas fa-chart-bar"></i> Seaborn</div>
+                    <div class="skill"><i class="fas fa-robot"></i> Scikit-learn</div>                  
+                </div>
+            </div>
+            
+            <div class="skills-category">
+                <h5>Databases</h5>
+                <div class="skills-list">
+                    <div class="skill"><i class="fas fa-database"></i> MySQL</div>
+                </div>
+            </div>
+            
+            <div class="skills-category">
+                <h5>Data Analytics & Data Visualization Tools</h5>
+                <div class="skills-list">
+                    <div class="skill"><i class="fas fa-file-excel"></i> Excel</div>
+                </div>
+            </div>
+            
+            <div class="skills-category">
+                <h5>Frameworks</h5>
+                <div class="skills-list">
+                    <div class="skill"><i class="fas fa-project-diagram"></i> FastAPI</div>
+                </div>
+            </div>
+            
+            <div class="skills-category">
+                <h5>Development Tools</h5>
+                <div class="skills-list">
+                    <div class="skill"><i class="fab fa-github"></i> GitHub</div>
+                </div>
+            </div>
+        </section>    
+        
+        <section id="github-projects">
+            <h2>Projects</h2>
+            <div class="container">
+
+            </div>
+        </section>
+
+        <div class="popup" id="popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closePopup()">&times;</span>
+                <div id="repo-content"></div>
+            </div>
+        </div>
+                    
+            
+              
+        <!-- <section id="contact">
+            <h2>Contact</h2>
+            <a href="https://www.linkedin.com/in/sai-kiran-lagumsani-7aa834206/">linkedin.com/in/sai-kiran-lagumsani</a>
+            <a href="https://github.com/saikiranlagumsani">https://github.com/saikiranlagumsani</a>
+            
+        </section> -->
+        <section id="contact">
+          <div class="container">
+              <h2>Contact</h2>
+              <p>Let's connect! Feel free to reach out through the links below:</p>
+              <div class="contact-links">
+                  <a href="https://www.linkedin.com/in/sai-kiran-lagumsani-7aa834206/" class="contact-btn" target="_blank">
+                      <i class="fab fa-linkedin"></i> LinkedIn
+                  </a>
+                  <a href="https://github.com/saikiranlagumsani" class="contact-btn" target="_blank">
+                      <i class="fab fa-github"></i> GitHub
+                  </a>
+              </div>
+          </div>
+      </section>
+      
+
+        <footer>
+            <p>&copy; 2025 Saikiran Lagumsani | All Rights Reserved</p>
+        </footer>
+    </div>
+</body>
+</html>
