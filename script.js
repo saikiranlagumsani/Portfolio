@@ -112,22 +112,22 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
     const repoContainer = document.getElementById("github-projects");
-const username = "saikiranlagumsani"; // Replace with your GitHub username
-const popup = document.getElementById("popup");
-const repoContent = document.getElementById("repo-content");
-const ignoredRepo = "saikiranlagumsani"; // Repository to ignore
-const closeBtn = document.querySelector(".close-btn"); // Fixing reference
+    const username = "saikiranlagumsani"; // Replace with your GitHub username
+    const popup = document.getElementById("popup");
+    const repoContent = document.getElementById("repo-content");
+    const ignoredRepo = "saikiranlagumsani"; // Repository to ignore
+    const closeBtn = document.querySelector(".close-btn"); // Fixing reference
 
-// Fetch GitHub Repositories
-fetch(`https://api.github.com/users/${username}/repos`)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`GitHub API error: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        repoContainer.innerHTML = ""; // Clear previous content
+    // Fetch GitHub Repositories
+    fetch(`https://api.github.com/users/${username}/repos`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`GitHub API error: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            repoContainer.innerHTML = ""; // Clear previous content
 
         // Filter out the ignored repository
         const filteredRepos = data.filter(repo => repo.name !== ignoredRepo);

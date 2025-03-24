@@ -1,5 +1,6 @@
 /* General Styling */
 #home {
+    background-color: rgb(60, 80, 130);;
     height: 100vh; /* Make the section take the full screen height */
     display: flex;
     justify-content: center; /* Center items horizontally */
@@ -43,6 +44,7 @@ section {
 
 
 #about {
+    background-color: rgb(60, 80, 130);;
     min-height: 50vh; /* Makes the section at least the full viewport height */
     display: flex;
     flex-direction: column;
@@ -147,6 +149,10 @@ nav ul li a.active {
     width: calc(100% - 220px);
     padding: 20px;
     transition: margin-left 0.3s ease-in-out;
+}
+
+#skills {
+    background-color: rgb(60, 80, 130);;
 }
 
 .skill {
@@ -264,7 +270,7 @@ nav ul li a.active {
 }
 
 #contact {
-    background: #111;
+    background: rgb(60, 80, 130);
     color: white;
     padding: 50px 20px;
     text-align: center;
@@ -301,6 +307,7 @@ nav ul li a.active {
 /* CSS for Project section */
 /* Grid layout for projects */
 #github-projects {
+    background-color: rgb(60, 80, 130);
     min-height: 50vh;
     display: flex;
     flex-wrap: wrap;
@@ -312,7 +319,7 @@ nav ul li a.active {
 .project-card {
     width: 300px;
     padding: 15px;
-    background: black;
+    background:rgb(120, 140, 190);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
@@ -378,7 +385,7 @@ nav ul li a.active {
 
 /* Close Button */
 .close-btn {
-    position: absolute;
+    position: fixed;
     top: 15px;
     right: 15px;
     font-size: 24px;
@@ -395,6 +402,7 @@ nav ul li a.active {
     background: rgba(255, 255, 255, 0.4);
     transform: scale(1.1);
 }
+
 
 /* Popup Heading */
 .popup-content h2 {
