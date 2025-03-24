@@ -45,7 +45,7 @@ portfolio/
 ## 📧 Contact Me
 
 - **Email:** [lagumsanisaikiran@gmail.com](mailto:lagumsanisaikiran@gmail.com)
-- **LinkedIn:** [linkedin.com/in/saikiranlagumsani]([https://linkedin.com/in/your-profile](https://www.linkedin.com/in/sai-kiran-lagumsani))
+- **LinkedIn:** [linkedin.com/in/saikiranlagumsani](https://www.linkedin.com/in/sai-kiran-lagumsani)
 - **GitHub:** [github.com/saikiranlagumsani](https://github.com/saikiranlagumsani)
 
 
