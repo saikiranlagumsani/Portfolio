@@ -34,7 +34,6 @@ portfolio/
 │── index.html          # Main HTML file
 │── styling/             # CSS 
 │── scripts/            # JavaScript files
-│── assets/             # Images & media
 │── README.md           # Project Documentation
 
 ```
