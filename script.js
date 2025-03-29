@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     //Scrolling text
-    const words = ["Pythonist", "Data Science Enthusiast", "Credentialing Specialist"];
+    const words = ["Full-Stack Pythonist", "Data Science Enthusiast", "Credentialing Specialist"];
     let index = 0;
     let charIndex = 0;
     let isDeleting = false;
@@ -112,113 +112,114 @@ document.addEventListener("DOMContentLoaded", function () {
     
 
     const repoContainer = document.getElementById("github-projects");
-const username = "saikiranlagumsani"; // Replace with your GitHub username
-const popup = document.getElementById("popup");
-const repoContent = document.getElementById("repo-content");
-const ignoredRepo = "saikiranlagumsani"; // Repository to ignore
-const closeBtn = document.querySelector(".close-btn"); // Fixing reference
+    const username = "saikiranlagumsani"; // Replace with your GitHub username
+    const popup = document.getElementById("popup");
+    const repoContent = document.getElementById("repo-content");
+    const ignoredRepo = "saikiranlagumsani"; // Repository to ignore
+    const closeBtn = document.querySelector(".close-btn"); // Fixing reference
 
-// Fetch GitHub Repositories
-fetch(`https://api.github.com/users/${username}/repos`)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`GitHub API error: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        repoContainer.innerHTML = ""; // Clear previous content
 
-        // Filter out the ignored repository
-        const filteredRepos = data.filter(repo => repo.name !== ignoredRepo);
-
-        if (filteredRepos.length === 0) {
-            repoContainer.innerHTML = "<p>No repositories found.</p>";
-            return;
-        }
-
-        filteredRepos.forEach(repo => {
-            const repoElement = document.createElement("div");
-            repoElement.classList.add("project-card");
-
-            repoElement.innerHTML = `
-                <h3>${repo.name}</h3>
-                <p>${repo.description ? repo.description : "No description available."}</p>
-                <button class="readme-btn" data-repo="${repo.name}" data-owner="${repo.owner.login}">View README File</button>
-            `;
-
-            repoContainer.appendChild(repoElement);
-        });
-
-        // Add event listeners for README buttons
-        document.querySelectorAll(".readme-btn").forEach(button => {
-            button.addEventListener("click", function () {
-                const repoName = this.getAttribute("data-repo");
-                const ownerName = this.getAttribute("data-owner");
-                openPopup(repoName, ownerName);
-            });
-        });
-
-    })
-    .catch(error => {
-        console.error("Error fetching GitHub repos:", error);
-        repoContainer.innerHTML = `<p>Failed to load GitHub projects. ${error.message}</p>`;
-    });
-
-// Function to open the popup with README content
-function openPopup(repoName, ownerName) {
-    fetch(`https://raw.githubusercontent.com/${ownerName}/${repoName}/main/README.md`)
+    // Fetch GitHub Repositories
+    fetch(`https://api.github.com/users/${username}/repos`)
         .then(response => {
             if (!response.ok) {
-                throw new Error("README not found.");
+                throw new Error(`GitHub API error: ${response.status}`);
             }
-            return response.text();
+            return response.json();
         })
-        .then(readmeText => {
-            return fetch("https://api.github.com/markdown", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    text: readmeText,
-                    mode: "gfm" // GitHub Flavored Markdown
-                })
+        .then(data => {
+            repoContainer.innerHTML = ""; // Clear previous content
+
+            // Filter out the ignored repository
+            const filteredRepos = data.filter(repo => repo.name !== ignoredRepo);
+
+            if (filteredRepos.length === 0) {
+                repoContainer.innerHTML = "<p>No repositories found.</p>";
+                return;
+            }
+
+            filteredRepos.forEach(repo => {
+                const repoElement = document.createElement("div");
+                repoElement.classList.add("project-card");
+
+                repoElement.innerHTML = `
+                    <h3>${repo.name}</h3>
+                    <p>${repo.description ? repo.description : "No description available."}</p>
+                    <button class="readme-btn" data-repo="${repo.name}" data-owner="${repo.owner.login}">View README File</button>
+                `;
+
+                repoContainer.appendChild(repoElement);
             });
-        })
-        .then(response => response.text())
-        .then(htmlContent => {
-            repoContent.innerHTML = `
-                <h2>${repoName}</h2>
-                <div class="readme-content">${htmlContent}</div>
-                <a href="https://github.com/${ownerName}/${repoName}" class="btn" target="_blank">View on GitHub</a>
-            `;
-            popup.classList.add("active");
+
+            // Add event listeners for README buttons
+            document.querySelectorAll(".readme-btn").forEach(button => {
+                button.addEventListener("click", function () {
+                    const repoName = this.getAttribute("data-repo");
+                    const ownerName = this.getAttribute("data-owner");
+                    openPopup(repoName, ownerName);
+                });
+            });
+
         })
         .catch(error => {
-            repoContent.innerHTML = `
-                <h2>${repoName}</h2>
-                <p style="color: red;">Error: ${error.message}</p>
-                <a href="https://github.com/${ownerName}/${repoName}" class="btn" target="_blank">View on GitHub</a>
-            `;
-            popup.classList.add("active");
+            console.error("Error fetching GitHub repos:", error);
+            repoContainer.innerHTML = `<p>Failed to load GitHub projects. ${error.message}</p>`;
         });
-}
-// Function to close the popup
-function closePopup() {
-    popup.classList.remove("active");
-    repoContent.innerHTML = ""; // Clear previous content
-}
 
-// Close popup when clicking on "X"
-if (closeBtn) {
-    closeBtn.addEventListener("click", closePopup);
-}
-
-// Close popup when clicking outside of the popup content
-window.addEventListener("click", (event) => {
-    if (event.target === popup) {
-        closePopup();
+    // Function to open the popup with README content
+    function openPopup(repoName, ownerName) {
+        fetch(`https://raw.githubusercontent.com/${ownerName}/${repoName}/main/README.md`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("README not found.");
+                }
+                return response.text();
+            })
+            .then(readmeText => {
+                return fetch("https://api.github.com/markdown", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        text: readmeText,
+                        mode: "gfm" // GitHub Flavored Markdown
+                    })
+                });
+            })
+            .then(response => response.text())
+            .then(htmlContent => {
+                repoContent.innerHTML = `
+                    <h2>${repoName}</h2>
+                    <div class="readme-content">${htmlContent}</div>
+                    <a href="https://github.com/${ownerName}/${repoName}" class="btn" target="_blank">View on GitHub</a>
+                `;
+                popup.classList.add("active");
+            })
+            .catch(error => {
+                repoContent.innerHTML = `
+                    <h2>${repoName}</h2>
+                    <p style="color: red;">Error: ${error.message}</p>
+                    <a href="https://github.com/${ownerName}/${repoName}" class="btn" target="_blank">View on GitHub</a>
+                `;
+                popup.classList.add("active");
+            });
     }
-});
+    // Function to close the popup
+    function closePopup() {
+        popup.classList.remove("active");
+        repoContent.innerHTML = ""; // Clear previous content
+    }
+
+    // Close popup when clicking on "X"
+    if (closeBtn) {
+        closeBtn.addEventListener("click", closePopup);
+    }
+
+    // Close popup when clicking outside of the popup content
+    window.addEventListener("click", (event) => {
+        if (event.target === popup) {
+            closePopup();
+        }
+    });
 });
