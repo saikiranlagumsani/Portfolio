@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     //Scrolling text
-    const words = ["Full-Stack Pythonist", "Data Science Enthusiast", "Credentialing Specialist"];
+    const words = ["Full-Stack Pythonist", "Data Science Enthusiast", "Data Processing Analyst"];
     let index = 0;
     let charIndex = 0;
     let isDeleting = false;
